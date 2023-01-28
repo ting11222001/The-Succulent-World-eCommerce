@@ -8,7 +8,7 @@ import { urlFor } from '../lib/client';
 
 const Cart = () => {
   const cartRef = useRef();
-  const { totalPrice, totalQuantities, cartItems, setShowCart, showCart } = useStateContext();
+  const { totalPrice, totalQuantities, cartItems, setShowCart, showCart, toggleCartItemQuantity } = useStateContext();
 
   return (
     <div className="cart-wrapper" ref={cartRef}>
@@ -40,7 +40,7 @@ const Cart = () => {
         )}
 
         <div className="product-container">
-          {cartItems.length >= 1 && cartItems.map((item, index) => (
+          {cartItems.length >= 1 && cartItems.map((item) => (
             <div className="product" key={item._id}>
               <img src={urlFor(item?.image[0])} className="cart-product-image" alt="" />
               <div className="item-desc">
@@ -52,9 +52,9 @@ const Cart = () => {
                 <div className="flex bottom">
                   <div>
                     <p className="quantity-desc">
-                      <span className="minus" onClick=""><AiOutlineMinus /></span>
-                      <span className="num" onClick="">0</span>
-                      <span className="plus" onClick=""><AiOutlinePlus /></span>
+                      <span className="minus" onClick={() => toggleCartItemQuantity(item._id, 'dec')}><AiOutlineMinus /></span>
+                      <span className="num" onClick="">{item.quantity}</span>
+                      <span className="plus" onClick={() => toggleCartItemQuantity(item._id, 'inc')}><AiOutlinePlus /></span>
                     </p>
                   </div>
                   <button
