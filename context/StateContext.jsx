@@ -74,6 +74,17 @@ export const StateContext = ({ children }) => {
     }
   }
 
+  const onRemove = (product) => {
+    foundProduct = cartItems.find((item) => item._id === product._id);
+    console.log("fountProduct: ", foundProduct);
+    const newCartItems = cartItems.filter((item) => item._id !== product._id);
+
+    setTotalPrice(prevTotalPrice => prevTotalPrice - foundProduct.price * foundProduct.quantity);
+    setTotalQuantities(prevTotalQuantities => prevTotalQuantities - foundProduct.quantity);
+    setCartItems(newCartItems);
+  }
+
+
   return (
     <Context.Provider
       value={{
@@ -90,7 +101,8 @@ export const StateContext = ({ children }) => {
         setTotalPrice,
         setTotalQuantities,
         setQty,
-        toggleCartItemQuantity
+        toggleCartItemQuantity,
+        onRemove
       }}
     >
       {children}
