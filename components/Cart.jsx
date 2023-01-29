@@ -22,7 +22,7 @@ const Cart = () => {
       body: JSON.stringify(cartItems),
     });
 
-    // console.log("cartItems: ", cartItems);
+    console.log("cartItems: ", cartItems);
 
     if (response.statusCode === 500) return;
 
