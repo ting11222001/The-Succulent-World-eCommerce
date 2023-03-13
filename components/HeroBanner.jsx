@@ -16,13 +16,13 @@ const HeroBanner = ({ heroBanner }) => {
           <Link href={`/product/${heroBanner.product}`}>
             <button type="button">{heroBanner.buttonText}</button>
           </Link>
-          <div className="desc">
+          {/* <div className="desc">
             <img src={urlFor(heroBanner.image)} alt="plants" className="hero-banner-image" />
             <div className="text">
               <h5>Description</h5>
               <p>{heroBanner.desc}</p>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
