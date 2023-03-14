@@ -252,6 +252,7 @@ span.text-red {
   color: white;
   width: 100%;
   margin-top: 120px;
+  min-height: 560px;
 }
 
 .banner-desc {
@@ -727,7 +728,7 @@ span.text-red {
 
 
   .footer-banner-container {
-    height: 560px;
+    min-height: 560px;
     margin-top: 80px;
   }
 
